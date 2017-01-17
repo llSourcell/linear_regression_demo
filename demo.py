@@ -7,6 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import cross_val_predict
 from sklearn.cross_validation import cross_val_score
+from sklearn.metrics import mean_squared_error
 from IPython.display import display
 #read data
 dataframe = pd.read_csv('challenge_dataset.txt',names = ['Brain','Body'])
@@ -18,10 +19,11 @@ y_values = dataframe[['Body']]
 #train model on data
 body_reg = linear_model.LinearRegression()
 body_reg.fit(x_values, y_values)
+pred = body_reg.predict(x_values)
 
 #visualize results
 plt.scatter(x_values, y_values)
-plt.plot(x_values, body_reg.predict(x_values))
+plt.plot(x_values, pred)
 plt.xlabel('Brain_weights')
 plt.ylabel("Body_weights")
 plt.show()
@@ -29,7 +31,7 @@ plt.show()
 print "r-square score:",body_reg.score(x_values,y_values)
 print "slope:" ,body_reg.coef_
 print "intercept:", body_reg.intercept_
-
+print "MSE value:", mean_squared_error(y_values,pred)
 
 
 
