@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 #read data
 dataframe = pd.read_fwf('brain_body.txt')
-x_values = dataframe[['Brain']]
-y_values = dataframe[['Body']]
+x_values = dataframe[['Brain']].values.tolist() # Credits : @xyzen
+y_values = dataframe[['Body']].values.tolist()
 
 #train model on data
 body_reg = linear_model.LinearRegression()
