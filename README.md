@@ -29,3 +29,4 @@ The challenge for this video is to use scikit-learn to create a line of best fit
 The credits for the original code go to [gcrowder](https://github.com/gcrowder). I've merely created a wrapper to get people started.
 
 #learning branching
+#showing new branch
